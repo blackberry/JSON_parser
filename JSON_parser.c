@@ -471,6 +471,10 @@ int JSON_parser_reset(JSON_parser jc)
             jc->stack_capacity = (int)COUNTOF(jc->static_stack);
             jc->depth = -1;
             jc->stack = &jc->static_stack[0];
+            jc->type = JSON_T_NONE;
+            jc->escaped = 0;
+            jc->before_comment_state = 0;
+            jc->error = 0;
         }
         
         /* set up the parse buffer */
